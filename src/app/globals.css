@@ -18,16 +18,33 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: rgb(41, 41, 41);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.logo-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infinite-zoom {
+  animation: zoomInOut 2s ease-in-out infinite alternate;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Adjust for desired zoom level */
+  }
+  100% {
+    transform: scale(1);
   }
 }

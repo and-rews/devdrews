@@ -96,8 +96,97 @@ body {
   font-weight: 600;
 }
 
+.getstarted-button1 {
+  background-color: yellow;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s ease all;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
 .getstarted-button:hover {
   background-color: rgb(73, 105, 7);
+}
+
+.getstarted-button1:hover {
+  background-color: rgb(141, 141, 1);
+}
+
+li .active {
+  color: white;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left {
+  padding: 5rem;
+  background-color: rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  box-shadow: rgba(30, 255, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-align: center;
+  color: white;
+}
+
+.left h1 {
+  font-size: 24px;
+  margin-top: 1rem;
+}
+
+.left p {
+  color: yellowgreen;
+}
+
+.limg {
+  border-radius: 50px;
+  display: grid;
+  margin: auto;
+}
+
+.right {
+  margin-left: 5rem;
+  color: white;
+  font-size: 15px;
+}
+
+.right h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.right h1 span {
+  color: yellowgreen;
+}
+
+.abd {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+}
+
+.abd1,
+.abd2 {
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.247);
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(30, 255, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-align: center;
+}
+
+.abd1 p,
+.abd2 p {
+  color: yellowgreen;
 }
 
 @media only screen and (max-width: 600px) {
@@ -113,5 +202,58 @@ body {
 
   .nav {
     margin-bottom: 0;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    width: 90vw;
+  }
+
+  .left {
+    padding: 2rem;
+  }
+
+  .left h1 {
+    font-size: 18px;
+  }
+
+  .limg {
+    width: 100px;
+  }
+
+  .getstarted-button,
+  .getstarted-button1 {
+    margin-right: 0;
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+
+  .btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .right {
+    display: grid;
+    margin: auto;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .right h1 {
+    font-size: 18px;
+  }
+
+  .abd {
+    grid-template-columns: 1fr;
+  }
+
+  .abd1,
+  .abd2 {
+    padding: 1rem;
+    margin: 0;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-top: 1rem;
   }
 }

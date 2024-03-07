@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Particles from "../../components/Particles";
 import Navbar from "../../components/Navbar";
+import AnimatedText from "../../components/AnimatedText";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,9 +17,14 @@ export default function Home() {
           alt="DevDrews"
           width={500}
           height={300}
-          style={{ border: "none" }}
+          style={{ border: "none", marginBottom: "2rem" }}
+          className="logo"
         />
       </div>
+      <AnimatedText />
+      <Link href="/contact" className="getstarted-button">
+        Contact Me
+      </Link>
     </main>
   );
 }

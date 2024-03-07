@@ -50,6 +50,8 @@ body {
 }
 
 .nav {
+  position: absolute;
+  top: 5vh;
   margin-bottom: 5rem;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.116);
@@ -58,7 +60,7 @@ body {
 
 .nav li {
   font-weight: 500;
-  color: white;
+  color: yellowgreen;
 }
 
 .mr {
@@ -66,6 +68,50 @@ body {
 }
 
 .nav li:hover {
-  color: green;
+  color: white;
   transition: 0.5s;
+}
+
+.typewriter {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  padding: 20px;
+  color: yellowgreen;
+}
+
+.getstarted-button {
+  background-color: yellowgreen;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.3s ease all;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.getstarted-button:hover {
+  background-color: rgb(73, 105, 7);
+}
+
+@media only screen and (max-width: 600px) {
+  .typewriter {
+    font-size: 12px;
+    padding: 5px;
+    width: 90vw;
+  }
+
+  .nav li {
+    font-size: 12px;
+  }
+
+  .nav {
+    margin-bottom: 0;
+  }
 }

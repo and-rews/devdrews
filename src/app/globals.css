@@ -34,7 +34,7 @@ body {
 }
 
 .infinite-zoom {
-  animation: zoomInOut 2s ease-in-out infinite alternate;
+  animation: zoomInOut 7s ease-in-out infinite alternate;
 }
 
 @keyframes zoomInOut {
@@ -47,4 +47,25 @@ body {
   100% {
     transform: scale(1);
   }
+}
+
+.nav {
+  margin-bottom: 5rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.116);
+  border-radius: 50px;
+}
+
+.nav li {
+  font-weight: 500;
+  color: white;
+}
+
+.mr {
+  margin-right: 1.5rem;
+}
+
+.nav li:hover {
+  color: green;
+  transition: 0.5s;
 }

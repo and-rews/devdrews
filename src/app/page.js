@@ -6,10 +6,10 @@ import Navbar from "../../components/Navbar";
 
 export default function Home() {
   return (
-    <main className="logo-flex flex min-h-screen flex-col items-center justify-between p-24">
-      <Particles />
+    <main className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
       <Navbar />
-      <div className="infinite-zoom">
+      <Particles />
+      <div className="infinite-zoom ">
         <Image
           src="/devdrews.png"
           alt="DevDrews"

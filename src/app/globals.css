@@ -189,6 +189,20 @@ li .active {
   color: yellowgreen;
 }
 
+.project-card {
+  box-shadow: rgba(30, 255, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.proimg {
+  border-radius: 10px;
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 600px) {
   .typewriter {
     font-size: 12px;
@@ -255,5 +269,14 @@ li .active {
     border-radius: 10px;
     font-size: 12px;
     margin-top: 1rem;
+  }
+
+  .project-card {
+    width: 90vw;
+  }
+
+  .project-title {
+    width: 100vw;
+    text-align: center;
   }
 }

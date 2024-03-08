@@ -8,6 +8,73 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 100px;
+}
+
+.submit-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Green hover */
+}
+
+.success,
+.error {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.error {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -129,7 +196,21 @@ li .active {
   grid-template-columns: 1fr 1fr;
 }
 
+.sabout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .left {
+  padding: 5rem;
+  background-color: rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
+  box-shadow: rgba(30, 255, 0, 0.15) 1.95px 1.95px 2.6px;
+  text-align: center;
+  color: white;
+}
+
+.sleft {
   padding: 5rem;
   background-color: rgba(0, 0, 0, 0.24);
   border-radius: 10px;
@@ -201,6 +282,17 @@ li .active {
   object-fit: cover;
   height: 200px;
   width: 100%;
+}
+
+.socimg {
+  border-radius: 10px;
+  object-fit: cover;
+  height: 100px;
+  width: 100%;
+}
+
+.form {
+  box-shadow: rgba(30, 255, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -278,5 +370,19 @@ li .active {
   .project-title {
     width: 100vw;
     text-align: center;
+  }
+
+  .sleft {
+    width: 90vw;
+    padding: 1rem;
+  }
+
+  .sabout {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .fm {
+    margin-bottom: 2rem;
   }
 }

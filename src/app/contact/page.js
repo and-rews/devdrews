@@ -67,7 +67,7 @@ export default function About() {
 
   return (
     <main>
-      <Particles />
+      {/* <Particles /> */}
       <div className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
         <Navbar />
         <div className="sabout">

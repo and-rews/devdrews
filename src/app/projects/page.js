@@ -92,7 +92,7 @@ export default function Projects() {
   return (
     <main className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
       <Navbar />
-      <Particles />
+      {/* <Particles /> */}
       <h1
         className="project-title"
         style={{ color: "white", fontSize: "25px", marginTop: "3rem" }}

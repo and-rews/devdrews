@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Typewriter from "typewriter-effect";
 
 const AnimatedText = () => {

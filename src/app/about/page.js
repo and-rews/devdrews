@@ -25,7 +25,7 @@ export default function About() {
             <p>Ethical Hacker / Fullstack Developer</p>
             <div className="btns">
               <Link
-                href="/resume.pdf"
+                href="/cv.pdf"
                 className="getstarted-button1"
                 style={{ marginRight: "1rem" }}
                 download="CV.pdf"

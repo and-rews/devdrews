@@ -1,5 +1,6 @@
 "use client";
 
+import TransitionEffect from "../../../components/TransitionEffect";
 import Particles from "../../../components/Particles";
 import Navbar from "../../../components/Navbar";
 import Link from "next/link";
@@ -90,37 +91,39 @@ export default function Projects() {
   ];
 
   return (
-    <main className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
-      <Navbar />
-      {/* <Particles /> */}
-      <h1
-        className="project-title"
-        style={{ color: "white", fontSize: "25px", marginTop: "3rem" }}
-      >
-        Discover my projects
-      </h1>
-      <section className="projects flex flex-wrap justify-center p-12">
-        {projects.map((project) => (
-          <article
-            key={project.name}
-            className="project-card w-full md:w-1/4 p-4 rounded shadow-md"
-          >
-            <Link href={project.link}>
-              <Image
-                src={project.image}
-                alt={project.name}
-                height={400}
-                width={400}
-                className="proimg"
-              />
-            </Link>
-            <div className="project-info p-4">
-              <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-              {/* Add a short project description here if desired */}
-            </div>
-          </article>
-        ))}
-      </section>
-    </main>
+    <TransitionEffect>
+      <main className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
+        <Navbar />
+        {/* <Particles /> */}
+        <h1
+          className="project-title"
+          style={{ color: "white", fontSize: "25px", marginTop: "3rem" }}
+        >
+          Discover my projects
+        </h1>
+        <section className="projects flex flex-wrap justify-center p-12">
+          {projects.map((project) => (
+            <article
+              key={project.name}
+              className="project-card w-full md:w-1/4 p-4 rounded shadow-md"
+            >
+              <Link href={project.link}>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  height={400}
+                  width={400}
+                  className="proimg"
+                />
+              </Link>
+              <div className="project-info p-4">
+                <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+                {/* Add a short project description here if desired */}
+              </div>
+            </article>
+          ))}
+        </section>
+      </main>
+    </TransitionEffect>
   );
 }

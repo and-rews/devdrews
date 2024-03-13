@@ -1,5 +1,6 @@
 "use client";
 
+import TransitionEffect from "../../../components/TransitionEffect";
 import React, { useState } from "react";
 import { db } from "../firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
@@ -66,97 +67,99 @@ export default function About() {
   ];
 
   return (
-    <main>
-      {/* <Particles /> */}
-      <div className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
-        <Navbar />
-        <div className="sabout">
-          <div className="sleft projects flex flex-wrap justify-center p-12">
-            {socials.map((social) => (
-              <article
-                key={social.name}
-                className="project-card w-full md:w-1/4 p-4 rounded"
-              >
-                <Link href={social.link}>
-                  <Image
-                    src={social.image}
-                    alt={social.name}
-                    height={100}
-                    width={100}
-                    className="socimg"
-                  />
-                </Link>
-                <div className="project-info p-4">
-                  <h3 className="text-xl font-bold mb-2">{social.name}</h3>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="right">
-            <div className="fm">
-              <form
-                onSubmit={handleSubmit}
-                className="max-w-md mx-auto p-4  shadow-md rounded-xl form"
-              >
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="block text-white font-bold mb-2"
-                  >
-                    Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full bg-transparent px-3 py-2 border rounded-lg focus:outline-none focus:border-green-600 text-white"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="mb-4">
-                  <label
-                    htmlFor="email"
-                    className="block text-white font-bold mb-2"
-                  >
-                    Email:
-                  </label>
-                  <input
-                    type="text"
-                    id="email"
-                    className="w-full bg-transparent px-3 py-2 border rounded-lg focus:outline-none focus:border-green-600 text-white"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
+    <TransitionEffect>
+      <main>
+        {/* <Particles /> */}
+        <div className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
+          <Navbar />
+          <div className="sabout">
+            <div className="sleft projects flex flex-wrap justify-center p-12">
+              {socials.map((social) => (
+                <article
+                  key={social.name}
+                  className="project-card w-full md:w-1/4 p-4 rounded"
+                >
+                  <Link href={social.link}>
+                    <Image
+                      src={social.image}
+                      alt={social.name}
+                      height={100}
+                      width={100}
+                      className="socimg"
+                    />
+                  </Link>
+                  <div className="project-info p-4">
+                    <h3 className="text-xl font-bold mb-2">{social.name}</h3>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="right">
+              <div className="fm">
+                <form
+                  onSubmit={handleSubmit}
+                  className="max-w-md mx-auto p-4  shadow-md rounded-xl form"
+                >
+                  <div className="mb-4">
+                    <label
+                      htmlFor="name"
+                      className="block text-white font-bold mb-2"
+                    >
+                      Name:
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full bg-transparent px-3 py-2 border rounded-lg focus:outline-none focus:border-green-600 text-white"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="email"
+                      className="block text-white font-bold mb-2"
+                    >
+                      Email:
+                    </label>
+                    <input
+                      type="text"
+                      id="email"
+                      className="w-full bg-transparent px-3 py-2 border rounded-lg focus:outline-none focus:border-green-600 text-white"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
 
-                <div className="mb-4">
-                  <label
-                    htmlFor="message"
-                    className="block text-white font-bold mb-2"
-                  >
-                    Message:
-                  </label>
-                  <textarea
-                    rows={500}
-                    id="message"
-                    className="w-full bg-transparent px-3 py-2 border rounded-lg focus:outline-none focus:border-green-600 text-white"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  ></textarea>
-                </div>
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </form>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="message"
+                      className="block text-white font-bold mb-2"
+                    >
+                      Message:
+                    </label>
+                    <textarea
+                      rows={500}
+                      id="message"
+                      className="w-full bg-transparent px-3 py-2 border rounded-lg focus:outline-none focus:border-green-600 text-white"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    ></textarea>
+                  </div>
+                  <div className="text-center">
+                    <button
+                      type="submit"
+                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg"
+                    >
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </TransitionEffect>
   );
 }

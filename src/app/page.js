@@ -13,21 +13,21 @@ export default function Home() {
       <main className="logo-flex min-h-screen flex p-24 flex-col items-center justify-between">
         <Navbar />
         <Particles />
-        {/* <div className="infinite-zoom ">
-        <Image
-          src="/devdrews.png"
-          alt="DevDrews"
-          width={500}
-          height={300}
-          style={{ border: "none", marginBottom: "2rem" }}
-          className="logo"
-        />
-      </div> */}
-        <div>
+        <div className="infinite-zoom ">
+          <Image
+            src="/devdrews.png"
+            alt="DevDrews"
+            width={500}
+            height={300}
+            style={{ border: "none", marginBottom: "2rem" }}
+            className="logo"
+          />
+        </div>
+        {/* <div>
           <h1 style={{ color: "white", fontWeight: "600", fontSize: "48px" }}>
             Dev<span style={{ color: "yellowgreen" }}>Drews</span>
           </h1>
-        </div>
+        </div> */}
         <AnimatedText />
         <Link href="/contact" className="getstarted-button">
           Contact Me
@@ -36,3 +36,5 @@ export default function Home() {
     </TransitionEffect>
   );
 }
+
+/*  */

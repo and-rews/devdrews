@@ -1,4 +1,4 @@
-// StarryBackground.js
+"use client";
 
 import { useEffect } from "react";
 

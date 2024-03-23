@@ -1,5 +1,4 @@
 "use client";
-
 import TransitionEffect from "../../components/TransitionEffect";
 import Image from "next/image";
 import Particles from "../../components/Particles";

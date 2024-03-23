@@ -2,7 +2,7 @@
 
 import TransitionEffect from "../../../components/TransitionEffect";
 import React, { useState } from "react";
-import { db } from "../firebaseConfig";
+import { db, storage } from "../firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 
 import Particles from "../../../components/Particles";

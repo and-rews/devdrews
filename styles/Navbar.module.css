@@ -51,3 +51,41 @@
   display: inline;
   opacity: 1;
 }
+
+@media only screen and (max-width: 780px) {
+  .navContainer {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .navbar .ul {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+  }
+
+  .navbar {
+    width: 90%;
+    position: relative;
+    display: grid;
+    margin: auto;
+    right: 0;
+    margin-top: 3%;
+  }
+
+  .nav li {
+    margin-bottom: 0;
+  }
+
+  .nav a span {
+    margin-left: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    right: 25px;
+    display: none;
+    font-size: 12px;
+  }
+}

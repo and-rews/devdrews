@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
-import { Contact, FolderOpen, Home, Rss, User } from "lucide-react";
+import { Contact, FolderOpen, Home, PhoneCall, Rss, User } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <div className="">
+    <div className={styles.navContainer}>
       <aside className={styles.navbar}>
         <nav className={styles.nav}>
-          <ul>
-            <li className="mt-4">
+          <ul className={styles.ul}>
+            <li className="">
               <Link href="/">
                 <Home />
                 <span>Home</span>
@@ -35,7 +35,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link href="/contact">
-                <Contact />
+                <PhoneCall />
                 <span>Contact</span>
               </Link>
             </li>

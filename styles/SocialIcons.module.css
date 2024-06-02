@@ -1,0 +1,14 @@
+.socialIcons {
+  color: #fff;
+  position: absolute;
+  display: flex;
+  bottom: 10%;
+  left: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+  .socialIcons {
+    bottom: 17%;
+    left: 25%;
+  }
+}

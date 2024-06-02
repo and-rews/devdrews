@@ -15,9 +15,27 @@
 }
 
 .heading {
-  color: #fff;
+  color: yellowgreen;
   font-weight: 700;
   font-size: 2.5rem;
   margin-bottom: 20px;
   width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero {
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .profileImage {
+    height: 60vh;
+    width: 90vw;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+  }
 }

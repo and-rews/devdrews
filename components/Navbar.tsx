@@ -12,26 +12,31 @@ export default function Navbar() {
             <li className="mt-4">
               <Link href="/">
                 <Home />
+                <span>Home</span>
               </Link>
             </li>
             <li>
               <Link href="/contact">
                 <User />
+                <span>About</span>
               </Link>
             </li>
             <li>
               <Link href="/projects">
                 <FolderOpen />
+                <span>Projects</span>
               </Link>
             </li>
             <li>
               <Link href="/contact">
                 <Rss />
+                <span>Blog</span>
               </Link>
             </li>
             <li>
               <Link href="/contact">
                 <Contact />
+                <span>Contact</span>
               </Link>
             </li>
           </ul>

@@ -64,7 +64,7 @@
 .readMore {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #333;
+  background-color: rgb(194 65 12);
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
@@ -72,7 +72,7 @@
 }
 
 .readMore:hover {
-  background-color: #555;
+  background-color: rgb(116, 33, 1);
 }
 
 @media only screen and (max-width: 780px) {

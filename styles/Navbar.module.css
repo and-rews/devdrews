@@ -2,7 +2,7 @@
   position: fixed;
   top: 30%;
   right: 5%;
-  background-color: rgb(100, 116, 139);
+  background-color: rgba(100, 116, 139, 0.219);
   color: #fff;
   padding: 1rem 0.5rem;
   border-radius: 50px;

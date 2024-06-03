@@ -12,7 +12,7 @@ const posts = [
     title: "Introduction to Ethical Hacking",
     description:
       "Learn about the basics of ethical hacking, its importance, and the different types of hacking techniques.",
-    image: "/images/blog1.jpg",
+    image: "/images/hacking.jpg",
     author: "John Doe",
     date: "May 1, 2023",
     slug: "introduction-to-ethical-hacking",
@@ -22,7 +22,7 @@ const posts = [
     title: "Building a Secure Web Application",
     description:
       "Discover best practices for building secure web applications and learn how to protect against common vulnerabilities.",
-    image: "/images/blog2.jpg",
+    image: "/images/webdev.png",
     author: "John Doe",
     date: "April 15, 2023",
     slug: "building-a-secure-web-application",
@@ -32,7 +32,7 @@ const posts = [
     title: "The Future of Cybersecurity",
     description:
       "Explore the latest trends and advancements in the cybersecurity landscape, and how they will shape the future of digital security.",
-    image: "/images/blog3.jpg",
+    image: "/images/hacking.jpg",
     author: "John Doe",
     date: "March 30, 2023",
     slug: "the-future-of-cybersecurity",
@@ -42,7 +42,7 @@ const posts = [
     title: "The Future of Cybersecurity",
     description:
       "Explore the latest trends and advancements in the cybersecurity landscape, and how they will shape the future of digital security.",
-    image: "/images/blog3.jpg",
+    image: "/images/hacking.jpg",
     author: "John Doe",
     date: "March 30, 2023",
     slug: "the-future-of-cybersecurity",

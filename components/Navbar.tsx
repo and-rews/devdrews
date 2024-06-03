@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Navbar.module.css";
 import Link from "next/link";
-import { Contact, FolderOpen, Home, PhoneCall, Rss, User } from "lucide-react";
+import { FolderOpen, Home, PhoneCall, Rss, User } from "lucide-react";
 
 export default function Navbar() {
   return (

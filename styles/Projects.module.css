@@ -1,0 +1,72 @@
+.projects {
+  padding: 4rem 2rem;
+}
+
+.projects h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: rgb(194 65 12);
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.project {
+  background-color: rgba(100, 116, 139, 0.219);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  color: #fff;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+.imageContainer {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.project p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  background-color: #555;
+}

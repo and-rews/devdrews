@@ -7,7 +7,8 @@
   padding: 1rem 0.5rem;
   border-radius: 50px;
   transition: width 0.3s ease-in-out;
-  width: 60px; /* Set an initial width */
+  width: 60px;
+  z-index: 1000;
 }
 
 .nav ul {

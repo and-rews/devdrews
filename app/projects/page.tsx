@@ -4,6 +4,7 @@ import styles from "../../styles/Projects.module.css";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 const projects = [
   {
@@ -88,6 +89,7 @@ export default function Projects() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

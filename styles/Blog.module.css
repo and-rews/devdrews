@@ -1,9 +1,9 @@
-.projects {
+.blog {
   padding: 2rem 2rem;
   margin-bottom: 3rem;
 }
 
-.projects h1 {
+.blog h1 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
@@ -11,13 +11,13 @@
   color: rgb(194 65 12);
 }
 
-.projectsGrid {
+.postGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
 }
 
-.project {
+.post {
   background-color: rgba(100, 116, 139, 0.219);
   padding: 1.5rem;
   border-radius: 8px;
@@ -26,7 +26,7 @@
   color: #fff;
 }
 
-.project:hover {
+.post:hover {
   transform: translateY(-5px);
 }
 
@@ -36,29 +36,32 @@
   border-radius: 4px;
 }
 
-.projectImage {
+.postImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.project h3 {
+.post h3 {
   font-size: 1.5rem;
   margin: 1rem 0;
 }
 
-.project p {
+.post p {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-.links {
+.postMeta {
   display: flex;
   justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
 }
 
-.link {
+.readMore {
   display: inline-block;
   padding: 0.5rem 1rem;
   background-color: #333;
@@ -68,7 +71,7 @@
   transition: background-color 0.3s ease;
 }
 
-.link:hover {
+.readMore:hover {
   background-color: #555;
 }
 

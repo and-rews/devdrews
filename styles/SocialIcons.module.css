@@ -8,7 +8,9 @@
 
 @media only screen and (max-width: 600px) {
   .socialIcons {
-    bottom: 17%;
-    left: 25%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: 0;
   }
 }

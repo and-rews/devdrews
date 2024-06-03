@@ -10,7 +10,7 @@ export default function SocialIcons() {
         href="https://github.com/and-rews"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-5 hover:text-lime-500"
+        className="mr-5 hover:text-orange-700"
       >
         <Github />
       </Link>
@@ -18,7 +18,7 @@ export default function SocialIcons() {
         href="https://www.linkedin.com/in/andrews-osei?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-5 hover:text-lime-500"
+        className="mr-5 hover:text-orange-700"
       >
         <Linkedin />
       </Link>
@@ -26,7 +26,7 @@ export default function SocialIcons() {
         href="https://x.com/devdrews1"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-5 hover:text-lime-500"
+        className="mr-5 hover:text-orange-700"
       >
         <Twitter />
       </Link>
@@ -34,7 +34,7 @@ export default function SocialIcons() {
         href="https://web.facebook.com/devdrews1"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-5 hover:text-lime-500"
+        className="mr-5 hover:text-orange-700"
       >
         <Facebook />
       </Link>
@@ -42,7 +42,7 @@ export default function SocialIcons() {
         href="https://www.instagram.com/devdrews1/"
         target="_blank"
         rel="noopener noreferrer"
-        className="hover:text-lime-500"
+        className="hover:text-orange-700"
       >
         <Instagram />
       </Link>

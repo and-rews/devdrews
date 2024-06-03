@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "../../styles/Projects.module.css";
@@ -7,48 +7,31 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-
-const projects = [
-  {
-    id: 3,
-    title: "Cybersecurity Tool",
-    description:
-      "A command-line tool written in Python to help security professionals perform various ethical hacking tasks.",
-    image: "/images/project3.jpg",
-    githubLink: "https://github.com/your-username/cybersecurity-tool",
-  },
-  {
-    id: 1,
-    title: "Hotel Website",
-    description:
-      "Responsive website for Lovek Condos, optimizing it for seamless viewing across all devices.",
-    image: "/images/lovekcondos.png",
-    demoLink: "https://lovekcondos.com",
-  },
-  {
-    id: 2,
-    title: "Online Phones Shop",
-    description:
-      "A convenient online phone shop that allows you to browse and purchase the latest devices from the comfort of your home.",
-    image: "/images/superlovek.png",
-    demoLink: "https://www.superlovekphones.com",
-  },
-  {
-    id: 4,
-    title: "Feedback System",
-    description:
-      "A robust feedback system with Nextjs and Firebase, enabling users to provide valuable insights and suggestions.",
-    image: "/images/feedback.png",
-    demoLink: "https://www.feedback-condos.vercel.app",
-    githubLink: "https://github.com/and-rews/feedback_condos.git",
-  },
-];
+import { db } from "../../firebase";
 
 export default function Projects() {
+  const [projects, setProjects] = useState([]);
+
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
+      duration: 1000,
     });
+
+    const fetchProjects = async () => {
+      try {
+        const snapshot = await db.ref("projects").once("value");
+        const projectsData = snapshot.val();
+        const projectsArray = Object.keys(projectsData).map((key) => ({
+          id: key,
+          ...projectsData[key],
+        }));
+        setProjects(projectsArray);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   return (

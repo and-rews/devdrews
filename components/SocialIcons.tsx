@@ -41,7 +41,7 @@ export default function SocialIcons() {
           target="_blank"
           rel="noopener noreferrer"
           className="mr-5 hover:text-orange-700"
-          data-aos="fade-left"
+          data-aos="fade-up"
         >
           <Github />
         </Link>
@@ -50,7 +50,7 @@ export default function SocialIcons() {
           target="_blank"
           rel="noopener noreferrer"
           className="mr-5 hover:text-orange-700"
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-delay="100"
         >
           <Linkedin />
@@ -60,7 +60,7 @@ export default function SocialIcons() {
           target="_blank"
           rel="noopener noreferrer"
           className="mr-5 hover:text-orange-700"
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-delay="200"
         >
           <Twitter />
@@ -70,7 +70,7 @@ export default function SocialIcons() {
           target="_blank"
           rel="noopener noreferrer"
           className="mr-5 hover:text-orange-700"
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-delay="300"
         >
           <Facebook />
@@ -80,7 +80,7 @@ export default function SocialIcons() {
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-orange-700"
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-delay="400"
         >
           <Instagram />

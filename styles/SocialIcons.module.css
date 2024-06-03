@@ -48,6 +48,10 @@
     margin-bottom: 7rem;
   }
 
+  .button {
+    font-size: 10px;
+  }
+
   .btn {
     display: flex;
     justify-content: center;

@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import styles from "../../styles/Blog.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,14 +52,25 @@ const posts = [
 ];
 
 export default function Blog() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className={styles.blog}>
-        <h1>Blog Posts</h1>
+        <h1 data-aos="fade-up">Blog Posts</h1>
         <div className={styles.postGrid}>
-          {posts.map((post) => (
-            <div key={post.id} className={styles.post}>
+          {posts.map((post, index) => (
+            <div
+              key={post.id}
+              className={styles.post}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               <div className={styles.imageContainer}>
                 <Image
                   src={post.image}

@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import styles from "../../styles/Projects.module.css";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -31,7 +33,6 @@ const projects = [
     image: "/images/superlovek.png",
     demoLink: "https://www.superlovekphones.com",
   },
-
   {
     id: 4,
     title: "Feedback System",
@@ -44,14 +45,25 @@ const projects = [
 ];
 
 export default function Projects() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className={styles.projects}>
-        <h1>My Projects</h1>
+        <h1 data-aos="fade-up">My Projects</h1>
         <div className={styles.projectsGrid}>
-          {projects.map((project) => (
-            <div key={project.id} className={styles.project}>
+          {projects.map((project, index) => (
+            <div
+              key={project.id}
+              className={styles.project}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               <div className={styles.imageContainer}>
                 <Image
                   src={project.image}

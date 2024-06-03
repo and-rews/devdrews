@@ -1,9 +1,42 @@
 .socialIcons {
   color: #fff;
   position: absolute;
-  display: flex;
   bottom: 10%;
   left: 5%;
+}
+
+.links {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-right: 1rem;
+}
+
+.downloadButton {
+  background-color: #333;
+  color: #fff;
+}
+
+.downloadButton:hover {
+  background-color: #555;
+}
+
+.contactButton {
+  background-color: rgb(194 65 12);
+  color: #fff;
+}
+
+.contactButton:hover {
+  background-color: rgb(112, 33, 1);
 }
 
 @media only screen and (max-width: 780px) {

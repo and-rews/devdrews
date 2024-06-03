@@ -16,7 +16,7 @@ export default function SocialIcons() {
 
   return (
     <div className={styles.socialIcons}>
-      <div>
+      <div className={styles.btn}>
         <Link
           href="/resume.pdf"
           target="_blank"

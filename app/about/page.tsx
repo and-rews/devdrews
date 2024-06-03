@@ -4,6 +4,7 @@ import styles from "../../styles/About.module.css";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function About() {
   return (
@@ -56,6 +57,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

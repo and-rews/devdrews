@@ -1,14 +1,11 @@
 import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
-import SocialIcons from "@/components/SocialIcons";
+import React from "react";
 
-export default function Home() {
+export default function page() {
   return (
     <div>
       <Navbar />
-      <Hero />
-      <SocialIcons />
       {/* <Footer /> */}
     </div>
   );

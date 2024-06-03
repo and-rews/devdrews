@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <>
+    <div>
       <h1 className={styles.dev}>
         Dev<span className="text-orange-700">Drews</span>{" "}
       </h1>
@@ -35,6 +35,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -2,8 +2,8 @@
 
 import React, { useState, FormEvent } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../firebase";
-import styles from "../../styles/CreateProject.module.css";
+import { db } from "../../../../firebase";
+import styles from "../../../../styles/CreateProject.module.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -39,7 +39,6 @@ const CreateProject: React.FC = () => {
 
   return (
     <>
-      <Navbar />
       <div className={styles.createProject}>
         <h1 className={styles.h1}>Add New Project</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -95,7 +94,6 @@ const CreateProject: React.FC = () => {
           </button>
         </form>
       </div>
-      <Footer />
     </>
   );
 };

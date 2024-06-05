@@ -29,11 +29,11 @@ export default function Navbar() {
     <div className={styles.navContainer}>
       <aside data-aos="fade-left" className={styles.navbar}>
         <nav className={styles.nav}>
-          {navLinks.map((link) => {
-            const isActive = pathname.endsWith(link.href);
-            return (
-              <ul key={link.name} className={styles.ul}>
-                <li data-aos="fade-right" data-aos-delay="100">
+          <ul className={styles.ul}>
+            {navLinks.map((link) => {
+              const isActive = pathname.endsWith(link.href);
+              return (
+                <li key={link.name} data-aos="fade-right" data-aos-delay="100">
                   <Link href={link.href}>
                     <i className={isActive ? "text-orange-700" : "text-white"}>
                       {link.icon}
@@ -41,9 +41,9 @@ export default function Navbar() {
                     <span>{link.name}</span>
                   </Link>
                 </li>
-              </ul>
-            );
-          })}
+              );
+            })}
+          </ul>
         </nav>
       </aside>
       {/* <aside data-aos="fade-left" className={styles.navbar}>

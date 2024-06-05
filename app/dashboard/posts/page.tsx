@@ -5,8 +5,18 @@ import { db } from "../../../firebase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+interface BlogPost {
+  id: string;
+  title: string;
+  category: string;
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
+}
+
 const BlogManagement = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -15,14 +25,14 @@ const BlogManagement = () => {
       const postsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      }));
+      })) as BlogPost[];
       setPosts(postsList);
     };
 
     fetchPosts();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     if (confirm("Are you sure you want to delete this post?")) {
       await deleteDoc(doc(db, "blogs", id));
       setPosts(posts.filter((post) => post.id !== id));
@@ -34,7 +44,7 @@ const BlogManagement = () => {
       <div className="container mx-auto p-4">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold">Blog Management</h1>
-          <Link href="/dashboard/posts/create">
+          <Link href="/dashboard/blogs/add">
             <button className="bg-blue-500 text-white px-4 py-2 rounded">
               Add Post
             </button>

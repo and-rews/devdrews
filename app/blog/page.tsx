@@ -10,8 +10,20 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  image?: string;
+  author?: string;
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
+}
+
 const Blog = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     AOS.init({
@@ -25,7 +37,7 @@ const Blog = () => {
       const postsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      }));
+      })) as BlogPost[];
       setPosts(postsList);
     };
 
@@ -47,7 +59,7 @@ const Blog = () => {
             >
               <div className={styles.imageContainer}>
                 <Image
-                  src={post.image || "/images/default.jpg"} // Provide a default image if none is available
+                  src={post.image || "/images/default.jpg"}
                   alt={post.title}
                   width={400}
                   height={300}

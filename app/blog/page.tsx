@@ -1,5 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "../../styles/Blog.module.css";
@@ -8,54 +10,26 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const posts = [
-  {
-    id: 1,
-    title: "Introduction to Ethical Hacking",
-    description:
-      "Learn about the basics of ethical hacking, its importance, and the different types of hacking techniques.",
-    image: "/images/hacking.jpg",
-    author: "John Doe",
-    date: "May 1, 2023",
-    slug: "introduction-to-ethical-hacking",
-  },
-  {
-    id: 2,
-    title: "Building a Secure Web Application",
-    description:
-      "Discover best practices for building secure web applications and learn how to protect against common vulnerabilities.",
-    image: "/images/webdev.png",
-    author: "John Doe",
-    date: "April 15, 2023",
-    slug: "building-a-secure-web-application",
-  },
-  {
-    id: 3,
-    title: "The Future of Cybersecurity",
-    description:
-      "Explore the latest trends and advancements in the cybersecurity landscape, and how they will shape the future of digital security.",
-    image: "/images/hacking.jpg",
-    author: "John Doe",
-    date: "March 30, 2023",
-    slug: "the-future-of-cybersecurity",
-  },
-  {
-    id: 4,
-    title: "The Future of Cybersecurity",
-    description:
-      "Explore the latest trends and advancements in the cybersecurity landscape, and how they will shape the future of digital security.",
-    image: "/images/hacking.jpg",
-    author: "John Doe",
-    date: "March 30, 2023",
-    slug: "the-future-of-cybersecurity",
-  },
-];
+const Blog = () => {
+  const [posts, setPosts] = useState([]);
 
-export default function Blog() {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
     });
+  }, []);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const querySnapshot = await getDocs(collection(db, "blogs"));
+      const postsList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setPosts(postsList);
+    };
+
+    fetchPosts();
   }, []);
 
   return (
@@ -73,7 +47,7 @@ export default function Blog() {
             >
               <div className={styles.imageContainer}>
                 <Image
-                  src={post.image}
+                  src={post.image || "/images/default.jpg"} // Provide a default image if none is available
                   alt={post.title}
                   width={400}
                   height={300}
@@ -81,12 +55,22 @@ export default function Blog() {
                 />
               </div>
               <h3>{post.title}</h3>
-              <p>{post.description}</p>
+              <div
+                className={styles.postContent}
+                dangerouslySetInnerHTML={{
+                  __html:
+                    post.content.length > 100
+                      ? `${post.content.slice(0, 100)}...`
+                      : post.content,
+                }}
+              />
               <div className={styles.postMeta}>
-                <span>{post.author}</span>
-                <span>{post.date}</span>
+                <span>{post.author || "Unknown Author"}</span>
+                <span>
+                  {new Date(post.createdAt.seconds * 1000).toLocaleDateString()}
+                </span>
               </div>
-              <Link href={`/blog/${post.slug}`} className={styles.readMore}>
+              <Link href={`/blog/${post.id}`} className={styles.readMore}>
                 Read More
               </Link>
             </div>
@@ -96,4 +80,6 @@ export default function Blog() {
       <Footer />
     </>
   );
-}
+};
+
+export default Blog;

@@ -43,7 +43,7 @@ const BlogManagement = () => {
     <>
       <div className="container mx-auto p-4">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">Blog Management</h1>
+          <h1 className="text-2xl text-white font-bold">Blog Management</h1>
           <Link href="/dashboard/blogs/add">
             <button className="bg-blue-500 text-white px-4 py-2 rounded">
               Add Post
@@ -68,12 +68,12 @@ const BlogManagement = () => {
                   {new Date(post.createdAt.seconds * 1000).toLocaleDateString()}
                 </td>
                 <td className="py-2 px-4 border space-x-2">
-                  <Link href={`/dashboard/blogs/view/${post.id}`}>
+                  <Link href={`/blog/${post.id}`}>
                     <button className="bg-green-500 text-white px-2 py-1 rounded">
                       View
                     </button>
                   </Link>
-                  <Link href={`/dashboard/blogs/edit/${post.id}`}>
+                  <Link href={`/dashboard/posts/edit/${post.id}`}>
                     <button className="bg-yellow-500 text-white px-2 py-1 rounded">
                       Edit
                     </button>

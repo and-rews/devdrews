@@ -25,13 +25,15 @@ const ProjectsList: React.FC = () => {
   }, []);
 
   const handleDelete = async (id: string) => {
-    try {
-      await deleteDoc(doc(db, "projects", id));
-      setProjects(projects.filter((project) => project.id !== id));
-      alert("Project deleted successfully!");
-    } catch (error) {
-      console.error("Error deleting project: ", error);
-      alert("Error deleting project. Please try again.");
+    if (window.confirm("Are you sure you want to delete this project?")) {
+      try {
+        await deleteDoc(doc(db, "projects", id));
+        setProjects(projects.filter((project) => project.id !== id));
+        alert("Project deleted successfully!");
+      } catch (error) {
+        console.error("Error deleting project: ", error);
+        alert("Error deleting project. Please try again.");
+      }
     }
   };
 

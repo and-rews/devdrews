@@ -1,159 +1,204 @@
-'use client';
+"use client";
 
-import BackButton from '@/components/BackButton';
-import * as z from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import React, { useState, useEffect } from "react";
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import posts from '@/data/posts';
-import { useToast } from '@/components/ui/use-toast';
+  doc,
+  getDoc,
+  updateDoc,
+  getDocs,
+  collection,
+} from "firebase/firestore";
+import { db } from "../../../../../firebase";
+import dynamic from "next/dynamic";
+import styles from "../../../../../styles/CreateProject.module.css";
+import { useSearchParams } from "next/navigation";
 
-const formSchema = z.object({
-  title: z.string().min(1, {
-    message: 'Title is required',
-  }),
-  body: z.string().min(1, {
-    message: 'Body is required',
-  }),
-  author: z.string().min(1, {
-    message: 'Author is required',
-  }),
-  date: z.string().min(1, {
-    message: 'Date is required',
-  }),
-});
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.snow.css";
 
-interface PostEditPageProps {
+interface BlogData {
+  id: string;
+  title: string;
+  content: string;
+  image?: string;
+  category?: string;
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
+}
+
+interface PageProps {
   params: {
     id: string;
   };
 }
 
-const PostEditPage = ({ params }: PostEditPageProps) => {
-  const { toast } = useToast();
+const EditBlog = ({ params }: PageProps) => {
+  const { id } = params;
 
-  const post = posts.find((post) => post.id === params.id);
+  const [blogData, setBlogData] = useState<BlogData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<any[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      title: post?.title || '',
-      body: post?.body || '',
-      author: post?.author || '',
-      date: post?.date || '',
-    },
-  });
+  useEffect(() => {
+    const fetchPost = async () => {
+      if (id) {
+        try {
+          const docRef = doc(db, "blogs", id);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            const postData = docSnap.data() as BlogData;
+            setBlogData({ ...postData, id: docSnap.id });
+            setSelectedCategory(postData.category || "");
+          } else {
+            console.log("No such document!");
+          }
+        } catch (error) {
+          console.error("Error fetching document:", error);
+        }
+      } else {
+        console.log("No ID found in URL.");
+      }
+      setLoading(false);
+    };
 
-  const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    toast({
-      title: 'Post has been updated successfully',
-      description: `Updated by ${post?.author} on ${post?.date}`,
-    });
+    const fetchCategories = async () => {
+      const querySnapshot = await getDocs(collection(db, "categories"));
+      const categoriesList: any[] = [];
+      querySnapshot.forEach((doc) => {
+        categoriesList.push({ id: doc.id, ...doc.data() });
+      });
+      setCategories(categoriesList);
+    };
+
+    fetchPost();
+    fetchCategories();
+  }, [id]);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (id && blogData) {
+      try {
+        const docRef = doc(db, "blogs", id);
+        await updateDoc(docRef, {
+          title: blogData.title,
+          content: blogData.content,
+          image: blogData.image,
+          category: selectedCategory,
+        });
+        alert("Blog updated successfully!");
+      } catch (error) {
+        console.error("Error updating blog: ", error);
+        alert("Error updating blog. Please try again.");
+      }
+    } else {
+      console.log("No ID found in URL.");
+    }
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!blogData) {
+    return <div>No post found.</div>;
+  }
 
   return (
     <>
-      <BackButton text='Back To Posts' link='/posts' />
-      <h3 className='text-2xl mb-4'>Edit Post</h3>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-8'>
-          <FormField
-            control={form.control}
-            name='title'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className='uppercase text-xs font-bold text-zinc-500 dark:text-white'>
-                  Title
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    className='bg-slate-100 dark:bg-slate-500 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible: ring-offset-0'
-                    placeholder='Enter Title'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name='body'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className='uppercase text-xs font-bold text-zinc-500 dark:text-white'>
-                  Body
-                </FormLabel>
-                <FormControl>
-                  <Textarea
-                    className='bg-slate-100 dark:bg-slate-500 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible: ring-offset-0'
-                    placeholder='Enter Body'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name='author'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className='uppercase text-xs font-bold text-zinc-500 dark:text-white'>
-                  Author
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    className='bg-slate-100 dark:bg-slate-500 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible: ring-offset-0'
-                    placeholder='Enter Author'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name='date'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className='uppercase text-xs font-bold text-zinc-500 dark:text-white'>
-                  Date
-                </FormLabel>
-                <FormControl>
-                  <Input
-                    className='bg-slate-100 dark:bg-slate-500 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible: ring-offset-0'
-                    placeholder='Enter Date'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <Button className='w-full dark:bg-slate-800 dark: text-white'>
-            Update Post
-          </Button>
+      <div className={styles.createProject}>
+        <h1 className={styles.h1}>Edit Blog</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              id="title"
+              value={blogData.title}
+              onChange={(e) =>
+                setBlogData({ ...blogData, title: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="category">Category</label>
+            <select
+              id="category"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Select Category
+              </option>
+              {categories.map((category) => (
+                <option key={category.name} value={category.name}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="image">Image URL</label>
+            <input
+              type="text"
+              id="image"
+              value={blogData.image || ""}
+              onChange={(e) =>
+                setBlogData({ ...blogData, image: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="content">Content</label>
+            <ReactQuill
+              value={blogData.content}
+              onChange={(value) => setBlogData({ ...blogData, content: value })}
+              modules={{
+                toolbar: [
+                  [{ header: "1" }, { header: "2" }, { font: [] }],
+                  [{ size: [] }],
+                  ["bold", "italic", "underline", "strike", "blockquote"],
+                  [
+                    { list: "ordered" },
+                    { list: "bullet" },
+                    { indent: "-1" },
+                    { indent: "+1" },
+                  ],
+                  ["link", "image", "video"],
+                  ["clean"],
+                ],
+              }}
+              formats={[
+                "header",
+                "font",
+                "size",
+                "bold",
+                "italic",
+                "underline",
+                "strike",
+                "blockquote",
+                "list",
+                "bullet",
+                "indent",
+                "link",
+                "image",
+                "video",
+              ]}
+            />
+          </div>
+          <button type="submit" className={styles.submitButton}>
+            Update Blog
+          </button>
         </form>
-      </Form>
+      </div>
     </>
   );
 };
 
-export default PostEditPage;
+export default EditBlog;

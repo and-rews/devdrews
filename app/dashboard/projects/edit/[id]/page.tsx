@@ -4,9 +4,7 @@ import React, { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "../../../../../firebase"; // Adjust the path if necessary
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { db } from "../../../../../firebase";
 import styles from "../../../../../styles/CreateProject.module.css";
 
 const EditProject: React.FC = () => {

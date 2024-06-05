@@ -6,6 +6,10 @@ const nextConfig = {
       "media.licdn.com",
       "raw.githubusercontent.com",
       "github.com",
+      "drive.google.com",
+      "images.prymetourism.com",
+      "prymetourism.com",
+      "utfs.io",
     ],
   },
 };

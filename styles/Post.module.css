@@ -17,6 +17,8 @@
 .title {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  font-weight: bold;
+  color: rgb(194 65 12);
 }
 
 .postMeta {
@@ -24,10 +26,12 @@
   justify-content: space-between;
   margin-bottom: 1rem;
   font-size: 0.875rem;
-  color: #555;
+  color: #7e7e7e;
 }
 
 .content {
   font-size: 1.125rem;
   line-height: 1.6;
+  color: white;
+  margin-bottom: 3rem;
 }

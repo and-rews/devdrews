@@ -55,7 +55,11 @@ const BlogPostPage = ({ params }: PageProps) => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="text-white flex items-center justify-center mt-5">
+        Loading...
+      </div>
+    );
   }
 
   if (!post) {
@@ -76,16 +80,20 @@ const BlogPostPage = ({ params }: PageProps) => {
           />
         </div>
         <h1 className={styles.title}>{post.title}</h1>
-        <div className={styles.postMeta}>
-          <span>{post.author || "Unknown Author"}</span>
-          <span>
-            {new Date(post.createdAt.seconds * 1000).toLocaleDateString()}
-          </span>
-        </div>
+
         <div
           className={styles.content}
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+        <div className={styles.postMeta}>
+          <span>{post.author || "Unknown Author"}</span>
+          <span>
+            {new Date(post.createdAt.seconds * 1000).toLocaleDateString(
+              "en-US",
+              { year: "numeric", month: "long", day: "numeric" }
+            )}
+          </span>
+        </div>
       </div>
       <Footer />
     </>

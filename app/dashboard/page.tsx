@@ -1,9 +1,8 @@
 import DashboardCard from "@/components/dashboard/DashboardCard";
 import PostsTable from "@/components/posts/PostsTable";
-import AnalyticsChart from "@/components/dashboard/AnalyticsChart";
 import { Folder, MessageCircle, Newspaper, User } from "lucide-react";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <div className="flex flex-col md:flex-row justify-between gap-5 mb-5">
@@ -33,3 +32,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;

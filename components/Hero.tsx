@@ -23,7 +23,8 @@ export default function Hero() {
         <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
           <ReactTyped
             strings={[
-              "Hi, I'm Andrews!",
+              "Hi, I'm Andrews😎",
+              "By day, a developer; by night, a hacker.",
               "Welcome to my digital playground!",
               "Explore my portfolio.",
               "Contact me for collaborations.",

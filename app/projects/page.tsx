@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 interface Project {
   id: string;
@@ -25,7 +25,9 @@ export default function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "projects"));
+        const querySnapshot = await getDocs(
+          query(collection(db, "projects"), orderBy("createdAt", "desc"))
+        );
         const projectsData = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),

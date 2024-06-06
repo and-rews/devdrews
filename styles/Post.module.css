@@ -15,7 +15,7 @@
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: bold;
   color: rgb(194 65 12);
@@ -24,7 +24,7 @@
 .postMeta {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   font-size: 0.875rem;
   color: #7e7e7e;
 }

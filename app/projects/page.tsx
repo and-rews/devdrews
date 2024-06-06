@@ -38,7 +38,7 @@ export default function Projects() {
 
     fetchProjects();
     AOS.init({
-      duration: 1000, // Animation duration
+      duration: 1000,
     });
   }, []);
 

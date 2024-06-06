@@ -16,6 +16,7 @@ import {
   CreditCard,
   Settings,
   User,
+  PhoneCall,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -41,6 +42,10 @@ const Sidebar = () => {
           <CommandItem>
             <Folders className="mr-2 h-4 w-4" />
             <Link href="/dashboard/projects">Projects</Link>
+          </CommandItem>
+          <CommandItem>
+            <PhoneCall className="mr-2 h-4 w-4" />
+            <Link href="/dashboard/contacts">Contacts</Link>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />

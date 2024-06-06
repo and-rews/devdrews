@@ -6,10 +6,13 @@ import styles from "../../styles/Contact.module.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SocialIcons from "@/components/SocialIcons";
+import { db } from "../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(""); // Added phone number state
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -19,16 +22,24 @@ export default function Contact() {
     });
   }, []);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here, you can add your logic to handle form submission, e.g., send an email or integrate with a backend API
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Message:", message);
-    setSubmitted(true);
-    setName("");
-    setEmail("");
-    setMessage("");
+    try {
+      await addDoc(collection(db, "contacts"), {
+        name,
+        email,
+        phone, // Include phone in the submitted data
+        message,
+        timestamp: new Date(),
+      });
+      setSubmitted(true);
+      setName("");
+      setEmail("");
+      setPhone(""); // Reset phone field
+      setMessage("");
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
 
   return (
@@ -65,6 +76,16 @@ export default function Contact() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 required
               />
             </div>

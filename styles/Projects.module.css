@@ -13,7 +13,7 @@
 
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -74,7 +74,8 @@
 
 @media only screen and (max-width: 780px) {
   .projectsGrid {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    grid-template-columns: 1fr;
   }
 }

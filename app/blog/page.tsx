@@ -72,14 +72,17 @@ const Blog = () => {
                 dangerouslySetInnerHTML={{
                   __html:
                     post.content.length > 100
-                      ? `${post.content.slice(0, 100)}...`
+                      ? `${post.content.slice(0, 20)}...`
                       : post.content,
                 }}
               />
               <div className={styles.postMeta}>
                 <span>{post.author || "Unknown Author"}</span>
                 <span>
-                  {new Date(post.createdAt.seconds * 1000).toLocaleDateString()}
+                  {new Date(post.createdAt.seconds * 1000).toLocaleDateString(
+                    "en-US",
+                    { year: "numeric", month: "long", day: "numeric" }
+                  )}
                 </span>
               </div>
               <Link href={`/blog/${post.id}`} className={styles.readMore}>

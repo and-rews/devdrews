@@ -45,7 +45,7 @@ const BlogManagement = () => {
       <div className="container mx-auto p-4">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl text-white font-bold">Blog Management</h1>
-          <Link href="/dashboard/blogs/add">
+          <Link href="/dashboard/posts/create">
             <button className="bg-blue-500 text-white px-4 py-2 rounded">
               Add Post
             </button>

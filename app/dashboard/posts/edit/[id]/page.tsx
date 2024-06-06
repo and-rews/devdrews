@@ -12,6 +12,7 @@ import { db } from "../../../../../firebase";
 import dynamic from "next/dynamic";
 import styles from "../../../../../styles/CreateProject.module.css";
 import { useSearchParams } from "next/navigation";
+import withAuth from "@/components/withAuth";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
@@ -201,4 +202,4 @@ const EditBlog = ({ params }: PageProps) => {
   );
 };
 
-export default EditBlog;
+export default withAuth(EditBlog);

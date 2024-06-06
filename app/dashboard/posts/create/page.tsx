@@ -5,6 +5,7 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../../../../firebase";
 import dynamic from "next/dynamic";
 import styles from "../../../../styles/CreateProject.module.css";
+import withAuth from "@/components/withAuth";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
@@ -141,4 +142,4 @@ const AddBlog: React.FC = () => {
   );
 };
 
-export default AddBlog;
+export default withAuth(AddBlog);

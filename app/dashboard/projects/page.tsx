@@ -7,6 +7,7 @@ import Navbarr from "@/components/Navbarr";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import withAuth from "@/components/withAuth";
 
 const ProjectsList: React.FC = () => {
   const [projects, setProjects] = useState<any[]>([]);
@@ -112,4 +113,4 @@ const ProjectsList: React.FC = () => {
   );
 };
 
-export default ProjectsList;
+export default withAuth(ProjectsList);

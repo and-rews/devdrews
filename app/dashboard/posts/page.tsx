@@ -4,6 +4,7 @@ import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import withAuth from "@/components/withAuth";
 
 interface BlogPost {
   id: string;
@@ -94,4 +95,4 @@ const BlogManagement = () => {
   );
 };
 
-export default BlogManagement;
+export default withAuth(BlogManagement);

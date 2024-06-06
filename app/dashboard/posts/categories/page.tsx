@@ -10,6 +10,7 @@ import {
 import { db } from "../../../../firebase";
 import styles from "../../../../styles/CreateProject.module.css";
 import Link from "next/link";
+import withAuth from "@/components/withAuth";
 
 const CategoryManagement: React.FC = () => {
   const [name, setName] = useState<string>("");
@@ -108,4 +109,4 @@ const CategoryManagement: React.FC = () => {
   );
 };
 
-export default CategoryManagement;
+export default withAuth(CategoryManagement);

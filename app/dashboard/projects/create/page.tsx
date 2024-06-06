@@ -6,6 +6,7 @@ import { db } from "../../../../firebase";
 import styles from "../../../../styles/CreateProject.module.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import withAuth from "@/components/withAuth";
 
 const CreateProject: React.FC = () => {
   const [title, setTitle] = useState<string>("");
@@ -98,4 +99,4 @@ const CreateProject: React.FC = () => {
   );
 };
 
-export default CreateProject;
+export default withAuth(CreateProject);

@@ -1,6 +1,9 @@
+"use client";
+
 import DashboardCard from "@/components/dashboard/DashboardCard";
 import PostsTable from "@/components/posts/PostsTable";
 import { Folder, MessageCircle, Newspaper, User } from "lucide-react";
+import withAuth from "@/components/withAuth";
 
 function Home() {
   return (
@@ -33,4 +36,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withAuth(Home);

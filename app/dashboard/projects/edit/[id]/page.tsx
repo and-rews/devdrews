@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../../../firebase";
 import styles from "../../../../../styles/CreateProject.module.css";
+import withAuth from "@/components/withAuth";
 
 const EditProject: React.FC = () => {
   const router = useRouter();
@@ -122,4 +123,4 @@ const EditProject: React.FC = () => {
   );
 };
 
-export default EditProject;
+export default withAuth(EditProject);

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, query, orderBy } from "firebase/firestore";
+
 import { db } from "../../firebase";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -34,7 +35,9 @@ const Blog = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const querySnapshot = await getDocs(collection(db, "blogs"));
+      const querySnapshot = await getDocs(
+        query(collection(db, "blogs"), orderBy("createdAt", "desc"))
+      );
       const postsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

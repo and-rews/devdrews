@@ -1,6 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  deleteDoc,
+  doc,
+  query,
+  orderBy,
+} from "firebase/firestore";
 import { db } from "../../../firebase";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -22,7 +29,9 @@ const BlogManagement = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const querySnapshot = await getDocs(collection(db, "blogs"));
+      const querySnapshot = await getDocs(
+        query(collection(db, "blogs"), orderBy("createdAt", "desc"))
+      );
       const postsList = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),

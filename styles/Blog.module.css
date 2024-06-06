@@ -5,10 +5,16 @@
 
 .blog h1 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 2rem;
   text-align: center;
   color: rgb(194 65 12);
+}
+
+.blog h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 
 .postGrid {
@@ -42,10 +48,13 @@
   object-fit: cover;
 }
 
-.post h3 {
+/* .post h1 {
   font-size: 1.5rem;
-  margin: 1rem 0;
-}
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: rgb(194 65 12);
+} */
 
 .post p {
   font-size: 1.1rem;

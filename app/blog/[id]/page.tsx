@@ -12,6 +12,7 @@ interface BlogPost {
   id: string;
   title: string;
   content: string;
+  category: string;
   image?: string;
   author?: string;
   createdAt: {
@@ -86,7 +87,7 @@ const BlogPostPage = ({ params }: PageProps) => {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className={styles.postMeta}>
-          <span>{post.author || "Unknown Author"}</span>
+          <span>{post.category}</span>
           <span>
             {new Date(post.createdAt.seconds * 1000).toLocaleDateString(
               "en-US",

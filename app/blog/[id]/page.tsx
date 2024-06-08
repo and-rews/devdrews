@@ -68,7 +68,7 @@ const BlogPostPage = ({ params }: PageProps) => {
   }
 
   return (
-    <>
+    <i className="post">
       <Navbar />
       <div className={styles.blogPost}>
         <div className={styles.imageContainer}>
@@ -97,7 +97,7 @@ const BlogPostPage = ({ params }: PageProps) => {
         </div>
       </div>
       <Footer />
-    </>
+    </i>
   );
 };
 

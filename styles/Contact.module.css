@@ -3,6 +3,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 3rem;
+  overflow-x: hidden;
 }
 
 .contact h1 {

@@ -1,3 +1,7 @@
+.post {
+  overflow-x: hidden;
+}
+
 .blogPost {
   max-width: 800px;
   margin: 0 auto;
@@ -17,10 +21,6 @@
 .postImage {
   max-width: 100%;
   height: auto;
-}
-
-.post {
-  overflow-x: hidden;
 }
 
 .title {

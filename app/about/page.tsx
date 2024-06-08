@@ -16,7 +16,7 @@ export default function About() {
   }, []);
 
   return (
-    <>
+    <span className={styles.aboutContainer}>
       <Navbar />
       <div className={styles.about}>
         <div className={styles.container}>
@@ -75,6 +75,6 @@ export default function About() {
         </div>
       </div>
       <Footer />
-    </>
+    </span>
   );
 }

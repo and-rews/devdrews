@@ -31,7 +31,7 @@ export default function Navbar() {
         <nav className={styles.nav}>
           <ul className={styles.ul}>
             {navLinks.map((link) => {
-              const isActive = pathname.endsWith(link.href);
+              const isActive = pathname === link.href;
               return (
                 <li key={link.name} data-aos="fade-right" data-aos-delay="100">
                   <Link href={link.href}>
@@ -46,42 +46,6 @@ export default function Navbar() {
           </ul>
         </nav>
       </aside>
-      {/* <aside data-aos="fade-left" className={styles.navbar}>
-        <nav className={styles.nav}>
-          <ul className={styles.ul}>
-            <li data-aos="fade-right">
-              <Link href="/">
-                <Home />
-                <span>Home</span>
-              </Link>
-            </li>
-            <li data-aos="fade-right" data-aos-delay="100">
-              <Link href="/about">
-                <User />
-                <span>About</span>
-              </Link>
-            </li>
-            <li data-aos="fade-right" data-aos-delay="200">
-              <Link href="/projects">
-                <FolderOpen />
-                <span>Projects</span>
-              </Link>
-            </li>
-            <li data-aos="fade-right" data-aos-delay="300">
-              <Link href="/blog">
-                <Rss />
-                <span>Blog</span>
-              </Link>
-            </li>
-            <li data-aos="fade-right" data-aos-delay="400">
-              <Link href="/contact">
-                <PhoneCall />
-                <span>Contact</span>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </aside> */}
     </div>
   );
 }

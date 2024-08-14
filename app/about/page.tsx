@@ -3,6 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Code, Server, Shield, Award } from "lucide-react";
 import AboutContent from "./AboutContent";
+import { Metadata } from "next";
+import { metadata as aboutMetadata } from "./metadata";
+
+export const metadata: Metadata = aboutMetadata;
 
 const skills = [
   {

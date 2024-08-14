@@ -6,6 +6,7 @@ import { db } from "../../../firebase";
 import Image from "next/image";
 import { Calendar, Tag } from "lucide-react";
 import AOS from "aos";
+import { Metadata } from "next";
 import "aos/dist/aos.css";
 
 interface BlogPost {
@@ -86,10 +87,10 @@ const BlogPostPage = ({ params }: PageProps) => {
         >
           <Image
             src={post.image || "/images/default.jpg"}
-            alt={post.title}
-            width={1200}
-            height={600}
-            className="w-full h-auto object-cover"
+            alt={`Cover image for blog post titled ${post.title}`}
+            width={600}
+            height={400}
+            className="w-full h-auto object-cover transition-transform duration-300 hover:scale-110"
           />
 
           <div className="p-8">

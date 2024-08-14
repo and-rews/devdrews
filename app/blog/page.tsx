@@ -153,7 +153,7 @@ const Blog = () => {
                   <div className="relative">
                     <Image
                       src={post.image || "/images/default.jpg"}
-                      alt={post.title}
+                      alt={`Cover image for blog post titled ${post.title}`}
                       width={600}
                       height={400}
                       className="w-full h-auto object-cover transition-transform duration-300 hover:scale-110"

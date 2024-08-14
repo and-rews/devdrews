@@ -1,12 +1,12 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import styles from "../../../styles/Post.module.css";
 import Image from "next/image";
+import { Calendar, Tag } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface BlogPost {
   id: string;
@@ -22,18 +22,16 @@ interface BlogPost {
 }
 
 interface PageProps {
-  params: {
-    id: string;
-  };
+  params: { id: string };
 }
 
 const BlogPostPage = ({ params }: PageProps) => {
-  const searchParams = useSearchParams();
   const { id } = params;
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    AOS.init({ duration: 1000 });
     const fetchPost = async () => {
       if (id) {
         try {
@@ -57,47 +55,70 @@ const BlogPostPage = ({ params }: PageProps) => {
 
   if (loading) {
     return (
-      <div className="text-white flex items-center justify-center mt-5">
-        Loading...
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
       </div>
     );
   }
 
   if (!post) {
-    return <div>No post found.</div>;
+    return (
+      <div className="text-center text-2xl mt-8 text-foreground">
+        No post found.
+      </div>
+    );
   }
 
   return (
-    <span className={styles.post}>
-      <Navbar />
-      <div className={styles.blogPost}>
-        <div className={styles.imageContainer}>
+    <div className="min-h-screen bg-gradient-to-br py-16 px-4 md:px-8">
+      <div className="max-w-4xl mx-auto">
+        <h1
+          className="text-4xl md:text-6xl font-bold mb-8 text-green-500 text-center"
+          data-aos="fade-up"
+        >
+          {post.title}
+        </h1>
+
+        <div
+          className="bg-card bg-opacity-80 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <Image
             src={post.image || "/images/default.jpg"}
             alt={post.title}
-            width={800}
+            width={1200}
             height={600}
-            className={styles.postImage}
+            className="w-full h-auto object-cover"
           />
-        </div>
-        <h1 className={styles.title}>{post.title}</h1>
 
-        <div
-          className={styles.content}
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-        <div className={styles.postMeta}>
-          <span>{post.category}</span>
-          <span>
-            {new Date(post.createdAt.seconds * 1000).toLocaleDateString(
-              "en-US",
-              { year: "numeric", month: "long", day: "numeric" }
-            )}
-          </span>
+          <div className="p-8">
+            <div className="flex flex-wrap justify-between items-center text-sm mb-6">
+              <span className="flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full mb-2 sm:mb-0">
+                <Tag className="w-4 h-4 mr-2" />
+                {post.category}
+              </span>
+              <span className="flex items-center text-green-500">
+                <Calendar className="w-4 h-4 mr-2" />
+                {new Date(post.createdAt.seconds * 1000).toLocaleDateString(
+                  "en-US",
+                  {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  }
+                )}
+              </span>
+            </div>
+
+            <div
+              className="prose prose-lg max-w-none text-foreground"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
         </div>
       </div>
-      <Footer />
-    </span>
+    </div>
   );
 };
 

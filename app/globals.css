@@ -1,8 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: rgb(30 41 59);
-  overflow-x: hidden;
+:root {
+  --background: #0a0e17;
+  --foreground: #160101;
+  --primary: #00ff00;
+  --secondary: #00ccff;
+  --accent: #ff00ff;
+  --muted: #1a2130;
+}
+
+.dark {
+  --background: #0a170e;
+  --foreground: #e0e0e0;
+  --primary: #00ff00;
+  --secondary: #00ccff;
+  --accent: #ff00ff;
+  --muted: #1a2130;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: "IBM Plex Mono", monospace;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-3 rounded-md font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-background hover:bg-opacity-80;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-secondary text-secondary hover:bg-secondary hover:text-background;
+  }
+
+  .nav-link {
+    @apply flex items-center px-3 py-2 rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-glow;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary);
+  }
+
+  .bg-matrix {
+    background-image: linear-gradient(
+        rgba(0, 255, 0, 0.03) 2px,
+        transparent 2px
+      ),
+      linear-gradient(90deg, rgba(0, 255, 0, 0.03) 2px, transparent 2px);
+    background-size: 50px 50px;
+  }
+
+  .hover-trigger .hover-target {
+    @apply transition-all duration-300 opacity-0 group-hover:opacity-100;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes moveAcross {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(calc(100vw - 120px));
+  }
+}
+
+.alien-float {
+  animation: float 3s ease-in-out infinite, moveAcross 15s linear infinite;
 }

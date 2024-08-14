@@ -1,49 +1,48 @@
 "use client";
 
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import Typed, { ReactTyped } from "react-typed";
-import styles from "../styles/Hero.module.css";
-import Image from "next/image";
+import React from "react";
+import Link from "next/link";
+import { TypeAnimation } from "react-type-animation";
+import { ArrowRight } from "lucide-react";
 
-export default function Hero() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-    });
-  }, []);
-
+const Hero = () => {
   return (
-    <div>
-      <h1 className={styles.dev} data-aos="fade-down">
-        Dev<span className="text-orange-700">Drews</span>{" "}
+    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] text-center px-4 bg-matrix overflow-hidden">
+      <h1 className="text-4xl md:text-6xl font-bold mb-6 text-glow">
+        Dev<span className="text-primary">Drews</span>
       </h1>
-      <div className={styles.hero}>
-        <h1 className={styles.heading} data-aos="fade-up" data-aos-delay="100">
-          <ReactTyped
-            strings={[
-              "Hi, I'm Andrews😎",
-              "By day, a developer; by night, a hacker.",
-              "Welcome to my digital playground!",
-              "Explore my portfolio.",
-              "Contact me for collaborations.",
-            ]}
-            typeSpeed={80}
-            backSpeed={50}
-            loop
-          />
-        </h1>
-        <div className={styles.profile} data-aos="zoom-in" data-aos-delay="200">
-          <Image
-            src="/images/profile.png"
-            alt="Profile "
-            height={500}
-            width={500}
-            className={styles.profileImage}
-          />
-        </div>
+      <div className="h-20 mb-8">
+        <TypeAnimation
+          sequence={[
+            "Ethical Hacker",
+            2000,
+            "Penetration Tester",
+            2000,
+            "Security Researcher",
+            2000,
+          ]}
+          wrapper="h2"
+          cursor={true}
+          repeat={Infinity}
+          className="text-2xl md:text-3xl font-semibold text-secondary"
+        />
+      </div>
+      <p className="text-lg mb-8 max-w-2xl">
+        Navigating the digital underground to fortify your digital assets.
+        Committed to elevating cybersecurity standards, one test at a time.
+      </p>
+      <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+        <Link href="/projects" passHref>
+          <button className="btn btn-primary">
+            View Projects <ArrowRight className="ml-2 inline" size={18} />
+          </button>
+        </Link>
+        <Link href="mailto:your.email@example.com" passHref>
+          <button className="btn btn-secondary">Contact Me</button>
+        </Link>
       </div>
     </div>
   );
-}
+};
+
+export default Hero;

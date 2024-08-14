@@ -20,7 +20,7 @@ export async function GET() {
     { url: "/projects", changefreq: "weekly", priority: 0.8 },
     { url: "/blog", changefreq: "daily", priority: 0.9 },
     ...blogUrls,
-    // Add more static pages as needed
+    { url: "/contact", changefreq: "weekly", priority: 0.8 },
   ];
 
   const stream = new SitemapStream({ hostname: "https://devdrews.com" });

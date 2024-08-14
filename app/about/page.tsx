@@ -47,8 +47,11 @@ export default function About() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center mb-16">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                About Andrews
+              <h1
+                className="text-4xl md:text-6xl font-bold mb-12 text-glow"
+                data-aos="fade-up"
+              >
+                About Me
               </h1>
               <p className="text-xl mb-8 text-muted-foreground">
                 Ethical Hacker & Software Engineer

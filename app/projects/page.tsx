@@ -26,7 +26,10 @@ export default async function Projects() {
 
   return (
     <>
-      <h1 className="text-4xl md:text-6xl font-bold mb-12 text-primary text-center">
+      <h1
+        className="text-4xl md:text-6xl font-bold mb-12 text-glow text-center"
+        data-aos="fade-up"
+      >
         My Projects
       </h1>
       <ProjectList initialProjects={projects} />

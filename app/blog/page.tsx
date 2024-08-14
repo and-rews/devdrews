@@ -104,7 +104,7 @@ export default function Blog() {
   return (
     <>
       <h1
-        className="text-4xl md:text-6xl font-bold mb-12 text-primary text-center"
+        className="text-4xl text-center md:text-6xl font-bold mb-12 text-glow"
         data-aos="fade-up"
       >
         Blog Posts

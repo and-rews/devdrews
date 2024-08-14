@@ -93,7 +93,10 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-6xl font-bold mb-8 text-primary text-center">
+      <h1
+        className="text-4xl text-center md:text-6xl font-bold mb-12 text-glow"
+        data-aos="fade-up"
+      >
         {post.title}
       </h1>
       <div className="bg-card bg-opacity-80 backdrop-blur-lg rounded-2xl overflow-hidden shadow-lg">

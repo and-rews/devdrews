@@ -10,8 +10,15 @@ interface Project {
   image: string;
   demoLink?: string;
   githubLink?: string;
-  category: "web" | "mobile" | "security" | "other";
+  category: string;
 }
+
+const categories = [
+  { name: "Web", icon: "Code" },
+  { name: "Mobile", icon: "Smartphone" },
+  { name: "Security", icon: "Shield" },
+  { name: "Other", icon: "Server" },
+];
 
 async function getProjects() {
   const querySnapshot = await getDocs(collection(db, "projects"));
@@ -32,7 +39,7 @@ export default async function Projects() {
       >
         My Projects
       </h1>
-      <ProjectList initialProjects={projects} />
+      <ProjectList initialProjects={projects} categories={categories} />
     </>
   );
 }

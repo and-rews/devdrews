@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devdrews.com/api/sitemap

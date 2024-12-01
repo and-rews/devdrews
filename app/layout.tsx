@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
-import { Particles } from "@/components/Particles";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
@@ -132,24 +130,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative min-h-screen">
-            <Particles className="absolute inset-0 -z-10" quantity={100} />
-            <div className="flex flex-col min-h-screen">
-              <Navbar />
-              <main className="flex-grow container mx-auto px-4 py-8">
-                {children}
-              </main>
-              <Footer />
-            </div>
+      <body className={`${inter.className} antialiased bg-[#050505]`}>
+        <div className="relative min-h-screen">
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            {/* Remove container and padding from main as they should be handled by components */}
+            <main className="flex-grow">{children}</main>
+            <Footer />
           </div>
-        </ThemeProvider>
+        </div>
       </body>
     </html>
   );
